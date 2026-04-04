@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "bagdock": {
+      "command": "npx",
+      "args": ["-y", "bagdock-mcp"],
+      "env": {
+        "BAGDOCK_API_KEY": ""
+      }
+    }
+  }
+}

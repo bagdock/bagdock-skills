@@ -1,0 +1,62 @@
+{
+  "skill": "bagdock",
+  "version": "1.0.0",
+  "evals": [
+    {
+      "id": "create-app",
+      "description": "Agent creates a new app on the Bagdock platform",
+      "input": "Create a new private edge adapter called 'xero-sync' on Bagdock",
+      "expected_commands": ["POST /v1/developer/apps"],
+      "expected_behavior": "Creates an integration_adapter with slug 'xero-sync', type 'access_control', visibility 'private', review_status 'draft'"
+    },
+    {
+      "id": "deploy-staging",
+      "description": "Agent deploys a worker to staging",
+      "input": "Deploy my adapter to staging",
+      "expected_commands": ["POST /v1/developer/apps/:slug/deploy"],
+      "expected_behavior": "Uploads worker bundle with environment='staging', returns worker URL at {slug}.pre.bdok.dev"
+    },
+    {
+      "id": "submit-for-review",
+      "description": "Agent submits app for marketplace review",
+      "input": "Submit my adapter for marketplace review",
+      "expected_commands": ["POST /v1/developer/apps/:slug/submit"],
+      "expected_behavior": "Sets review_status to 'submitted', returns success"
+    },
+    {
+      "id": "check-submission-status",
+      "description": "Agent checks submission review status",
+      "input": "What's the review status of my latest submission?",
+      "expected_commands": ["GET /v1/developer/apps/:slug/submissions"],
+      "expected_behavior": "Returns submission history with version IDs, change reasons, and current_status"
+    },
+    {
+      "id": "withdraw-submission",
+      "description": "Agent withdraws a pending submission",
+      "input": "Withdraw my submission, I need to fix a bug first",
+      "expected_commands": ["POST /v1/developer/apps/:slug/submissions/:id/withdraw"],
+      "expected_behavior": "Sets review_status back to 'draft', creates withdrawal version record"
+    },
+    {
+      "id": "create-api-key",
+      "description": "Agent creates an API key for CI deployment",
+      "input": "Create a secret API key named 'CI Deploy' for the live environment",
+      "expected_commands": ["POST /v1/operator/api-keys"],
+      "expected_behavior": "Returns new key with bdok_sk_ prefix, shown once"
+    },
+    {
+      "id": "list-env-vars",
+      "description": "Agent lists environment variables for an app",
+      "input": "Show me the env vars for xero-sync",
+      "expected_commands": ["GET /v1/developer/apps/xero-sync/env"],
+      "expected_behavior": "Returns list of env var keys with updated timestamps"
+    },
+    {
+      "id": "set-env-var",
+      "description": "Agent sets an environment variable",
+      "input": "Set XERO_CLIENT_ID to abc123 on my adapter",
+      "expected_commands": ["PUT /v1/developer/apps/:slug/env"],
+      "expected_behavior": "Stores env var (value masked), takes effect on next deploy"
+    }
+  ]
+}

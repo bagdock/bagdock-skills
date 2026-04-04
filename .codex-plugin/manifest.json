@@ -1,0 +1,18 @@
+{
+  "name": "bagdock-skills",
+  "version": "1.0.0",
+  "description": "Agent skills for working with Bagdock — CLI, API, adapters, and marketplace",
+  "skills": [
+    {
+      "name": "bagdock",
+      "path": "skills/bagdock"
+    },
+    {
+      "name": "bagdock-cli",
+      "path": "skills/bagdock-cli"
+    }
+  ],
+  "mcp": {
+    "config": "../mcp.json"
+  }
+}
