@@ -15,7 +15,7 @@ claude mcp add bagdock -s user -- npx -y bagdock-mcp
 Set your API key:
 
 ```bash
-export BAGDOCK_API_KEY=bdok_sk_your_key_here
+export BAGDOCK_API_KEY=sk_live_your_key_here
 ```
 
 ## Available skills
@@ -25,7 +25,7 @@ export BAGDOCK_API_KEY=bdok_sk_your_key_here
 
 ## Conventions
 
-- All Bagdock API keys start with `bdok_sk_` (secret) or `bdok_pk_` (publishable)
+- API keys use Stripe-style prefixes: `sk_live_` / `sk_test_` (secret), `pk_live_` / `pk_test_` (publishable)
 - The CLI outputs JSON when piped or when `--json` is passed
 - Exit code 0 = success, 1 = error
 - Errors always include `code` and `message` fields

@@ -1,6 +1,6 @@
 {
   "name": "@bagdock/skills",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "AI agent skills for the Bagdock platform — CLI, API, and email best practices",
   "main": "index.js",
   "files": [

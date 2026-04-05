@@ -42,7 +42,7 @@
       "description": "Agent creates an API key for CI deployment",
       "input": "Create a secret API key named 'CI Deploy' for the live environment",
       "expected_commands": ["POST /v1/operator/api-keys"],
-      "expected_behavior": "Returns new key with bdok_sk_ prefix, shown once"
+      "expected_behavior": "Returns new key with sk_live_ prefix, shown once"
     },
     {
       "id": "list-env-vars",

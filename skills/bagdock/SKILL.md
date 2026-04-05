@@ -4,24 +4,45 @@ Bagdock is a platform for self-storage operators — apps and edges deploy to Cl
 
 ## Authentication
 
-API keys use a prefix convention:
+### API Keys (Operator-scoped)
 
-| Prefix | Type | Usage |
-|--------|------|-------|
-| `bdok_sk_` | Secret | Server-side, full access |
-| `bdok_pk_` | Publishable | Client-side, limited access |
+API keys follow a Stripe-style prefix convention. The prefix encodes key type and environment:
+
+| Prefix | Type | Environment |
+|--------|------|-------------|
+| `sk_live_` | Secret | Production |
+| `sk_test_{sandbox}_` | Secret | Sandbox |
+| `pk_live_` | Publishable | Production |
+| `pk_test_{sandbox}_` | Publishable | Sandbox |
+| `rk_live_` / `rk_test_` | Restricted | Scoped to specific permissions |
+| `sk_personal_` | Personal | Per-user |
+| `ik_live_` / `ik_test_` | Internal | System/AI use only |
 
 Set via environment variable:
 
 ```bash
-export BAGDOCK_API_KEY=bdok_sk_your_key_here
+export BAGDOCK_API_KEY=sk_live_your_key_here
 ```
 
 Or pass per-request:
 
 ```
-Authorization: Bearer bdok_sk_your_key_here
+Authorization: Bearer sk_live_your_key_here
+X-API-Key: sk_live_your_key_here
 ```
+
+### Embed Tokens
+
+| Prefix | System | Usage |
+|--------|--------|-------|
+| `emb_` | Loyalty SDK | Client-side widget auth for loyalty features |
+| `hive_tok_` | Hive SDK | Client-side widget auth for chat/access |
+
+Embed tokens are not API keys — they are scoped, revocable tokens for embedding widgets.
+
+### Agent / M2M Tokens
+
+Autonomous agent auth uses Stytch M2M (OAuth2 `client_credentials` grant). Access tokens are standard JWTs verified via Stytch JWKS — no Bagdock-specific prefix.
 
 The CLI also supports OAuth2 Device Authorization Grant for interactive login.
 
@@ -103,5 +124,5 @@ bagdock submit
 ```bash
 bagdock keys create --name "CI Deploy" --environment live
 bagdock keys list
-bagdock keys delete bdok_key_xxx
+bagdock keys delete ak_xxx
 ```

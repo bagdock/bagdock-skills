@@ -1,17 +1,3 @@
-```
-  ----++                                ----++                    ---+++     
-  ---+++                                ---++                     ---++      
- ----+---     -----     ---------  --------++ ------     -----   ----++----- 
- ---------+ --------++----------++--------+++--------+ --------++---++---++++
- ---+++---++ ++++---++---+++---++---+++---++---+++---++---++---++------++++  
-----++ ---++--------++---++----++---++ ---++---++ ---+---++     -------++    
-----++----+---+++---++---++----++---++----++---++---+++--++ --------+---++   
----------++--------+++--------+++--------++ -------+++ -------++---++----++  
- +++++++++   +++++++++- +++---++   ++++++++    ++++++    ++++++  ++++  ++++  
-                     --------+++                                             
-                       +++++++                                               
-```
-
 # Bagdock Skills
 
 A collection of skills for AI coding agents following the [Agent Skills](https://github.com/anthropics/agent-skills) format. Available as a plugin for Claude Code, Cursor, OpenAI Codex, and Conductor. Includes an MCP server for tool access.
@@ -69,7 +55,7 @@ Skills marked **"Synced from"** are automatically synced from their source repos
 - A Bagdock account with a developer or operator role
 - API key stored in `BAGDOCK_API_KEY` environment variable
 
-Get your API key at [app.bagdock.com/settings/api-keys](https://app.bagdock.com/settings/api-keys)
+Manage API keys in the operator dashboard at `/{operatorSlug}/developer/keys`
 
 ## License
 
