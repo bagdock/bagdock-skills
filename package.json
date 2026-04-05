@@ -1,0 +1,41 @@
+{
+  "name": "@bagdock/skills",
+  "version": "0.1.0",
+  "description": "AI agent skills for the Bagdock platform — CLI, API, and email best practices",
+  "main": "index.js",
+  "files": [
+    "skills",
+    "skill-evals",
+    ".cursor-plugin",
+    ".claude-plugin",
+    ".codex-plugin",
+    "mcp.json",
+    ".mcp.json",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {},
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bagdock/bagdock-skills"
+  },
+  "homepage": "https://github.com/bagdock/bagdock-skills",
+  "bugs": "https://github.com/bagdock/bagdock-skills/issues",
+  "keywords": [
+    "bagdock",
+    "skills",
+    "ai",
+    "agent",
+    "cursor",
+    "claude",
+    "codex",
+    "mcp",
+    "self-storage"
+  ],
+  "license": "MIT"
+}
